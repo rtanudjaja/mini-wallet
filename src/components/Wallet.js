@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
 import UserContext from "../context/UserContext"
 import WalletDataService from "../services/WalletDataService"
-
 import { v4 as uuidv4 } from 'uuid'
+import { formatCurrency } from "../utils/utils"
 
 import Button from 'react-bootstrap/Button'
 import Badge from 'react-bootstrap/Badge'
@@ -13,8 +13,6 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Spinner from 'react-bootstrap/Spinner'
 import Modal from 'react-bootstrap/Modal'
-
-import { formatCurrency } from "../utils/utils"
 import { Wallet2, X } from 'react-bootstrap-icons';
 
 const Wallet = (props) => {
@@ -31,6 +29,7 @@ const Wallet = (props) => {
   const [modal, setModal] = useState("");
   const [show, setShow] = useState(false);
 
+  //Modal Methods
   const handleError = (msg) => {
     props.history.push({
       pathname: '/error',
@@ -90,7 +89,7 @@ const Wallet = (props) => {
       });
   }
 
-  //useMoney
+  //spendMoney
   const withdraw = () => {
     const _data = { amount: withdrawValue, reference_id: uuidv4() };
     WalletDataService.withdraw(_data, _token)
@@ -154,7 +153,6 @@ const Wallet = (props) => {
           <h5><Wallet2 />{` ${user.name.toUpperCase()}'s`} Wallet</h5>
           <span className="m-1" />
           {balanceWallet}
-          {/** balance */}
           {wallet.page === 0 && (
             <>
               <span className="m-3" />
@@ -164,7 +162,6 @@ const Wallet = (props) => {
               </div>
             </>
           )}
-          {/** deposit */}
           {wallet.page === 1 && (
             <>
               <Form className="p-2" >
@@ -177,7 +174,6 @@ const Wallet = (props) => {
               </Form>
             </>
           )}
-          {/** withdraw */}
           {wallet.page === 2 && (
             <>
               <Form className="p-2" >
