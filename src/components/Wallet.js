@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import UserContext from "../context/UserContext"
 import WalletDataService from "../services/WalletDataService"
+
 import { v4 as uuidv4 } from 'uuid'
 
 import Button from 'react-bootstrap/Button'
@@ -16,7 +18,8 @@ import { formatCurrency } from "../utils/utils"
 import { Wallet2, X } from 'react-bootstrap-icons';
 
 const Wallet = (props) => {
-  const _token = props.user.token;
+  const { user } = useContext(UserContext);
+  const _token = user.token;
   const initialWalletState = {
     "balance": 0,
     "isLoading": true,
@@ -148,7 +151,7 @@ const Wallet = (props) => {
       <div className="h-100 d-flex align-items-center justify-content-center">
         <Card className="p-4">
           <h3 className="text-right"><Button variant="link" onClick={() => disable()}><X size={40} /></Button></h3>
-          <h5><Wallet2 />{` ${props.user.name.toUpperCase()}'s`} Wallet</h5>
+          <h5><Wallet2 />{` ${user.name.toUpperCase()}'s`} Wallet</h5>
           <span className="m-1" />
           {balanceWallet}
           {/** balance */}

@@ -10,10 +10,8 @@ const Home = (props) => {
     <Jumbotron className="h-100 d-flex align-items-center justify-content-center" >
       <Container className="w-100 d-flex flex-column align-items-center">
         <h1>My E-Wallet</h1>
-        {/** Title */}
         <Image src="../../wallet.png" fluid roundedCircle />
         <Login {...props} />
-        {/** LOGIN */}
       </Container>
     </Jumbotron>
   )

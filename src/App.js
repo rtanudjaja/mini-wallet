@@ -22,10 +22,10 @@ export default function App() {
   return (
     <div className="App">
       <UserContext.Provider value={{ user, setUser }}>
-        <TopNavbar {...user}></TopNavbar>
+        <TopNavbar></TopNavbar>
         <Switch>
-          <Route render={(props) => (<Home {...props} user={user} />)} path="/" exact={true} />
-          <Route render={(props) => (<Wallet {...props} user={user} />)} path="/wallet" exact={true} />
+          <Route render={(props) => (<Home {...props} />)} path="/" exact={true} />
+          <Route render={(props) => (<Wallet {...props} />)} path="/wallet" exact={true} />
           <Route component={Error} path="/error" exact={true} />
           <Route component={() => <Redirect to="/" />} />
         </Switch>

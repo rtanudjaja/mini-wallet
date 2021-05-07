@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import UserContext from "../context/UserContext"
 import Navbar from 'react-bootstrap/Navbar'
 
-const TopNavbar = (user) => {
+const TopNavbar = () => {
+  const { user } = useContext(UserContext);
+
   return (
     <>
       <Navbar bg="primary" variant="dark" >
