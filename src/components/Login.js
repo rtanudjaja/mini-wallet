@@ -42,7 +42,7 @@ const Login = (props) => {
           props.history.push({
             pathname: '/error',
             state: {
-              error: e,
+              error: JSON.stringify(e),
             },
           })
         });
@@ -84,7 +84,7 @@ const Login = (props) => {
         props.history.push({
           pathname: '/error',
           state: {
-            error: e,
+            error: JSON.stringify(e),
           },
         })
       });
