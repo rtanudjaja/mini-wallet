@@ -164,8 +164,8 @@ const Wallet = (props) => {
           )}
           {wallet.page === 1 && (
             <>
-              <Form className="p-2" >
-                <FormControl type="text" placeholder="Deposit Amount" value={depositValue} onChange={(e) => setDepositValue(e.target.value ? e.target.value : null)} />
+              <Form className="p-2" onSubmit={() => handleShow("deposit")}>
+                <FormControl as="input" type="number" step="any" placeholder="Deposit Amount" value={depositValue} onChange={(e) => setDepositValue(e.target.value ? e.target.value : null)} />
                 <span className="m-3" />
                 <Row className="d-flex justify-content-around">
                   <Button variant="outline-primary" onClick={() => handleShow("deposit")}>Deposit</Button>
@@ -176,8 +176,8 @@ const Wallet = (props) => {
           )}
           {wallet.page === 2 && (
             <>
-              <Form className="p-2" >
-                <FormControl type="text" placeholder="Withdraw Amount" value={withdrawValue} onChange={(e) => setWithdrawValue(e.target.value ? e.target.value : null)} />
+              <Form className="p-2" onSubmit={() => handleShow("withdraw")}>
+                <FormControl as="input" type="number" step="any" placeholder="Withdraw Amount" value={withdrawValue} onChange={(e) => setWithdrawValue(e.target.value ? e.target.value : null)} />
                 <span className="m-3" />
                 <Row className="d-flex justify-content-around">
                   <Button variant="outline-primary" onClick={() => handleShow("withdraw")}>Withdraw</Button>
