@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
+import { Redirect } from "react-router-dom";
 import UserContext from "../context/UserContext"
 import WalletDataService from "../services/WalletDataService"
 import { v4 as uuidv4 } from 'uuid'
@@ -131,7 +132,7 @@ const Wallet = (props) => {
     </Row>
   )
 
-  return (
+  return user.login ? (
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -189,7 +190,9 @@ const Wallet = (props) => {
         </Card>
       </div >
     </>
-  )
+  ) :
+    (<Redirect to="/" />)
+
 }
 
 export default Wallet
