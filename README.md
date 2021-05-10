@@ -4,6 +4,10 @@
 
 This mini wallet is implemented by scratch on ReactJS for the purpose of job application for Sr. Web Frontend Engineer role in JULO. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Install all dependencies for the server
+
+`$ yarn install`
+
 ## Available Scripts
 
 In the project directory, you can run:
