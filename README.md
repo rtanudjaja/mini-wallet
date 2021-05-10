@@ -6,6 +6,8 @@ This mini wallet is implemented by scratch on ReactJS for the purpose of job app
 
 ## Install all dependencies for the server
 
+Run this command before running the other available scripts.
+
 `$ yarn install`
 
 ## Available Scripts
