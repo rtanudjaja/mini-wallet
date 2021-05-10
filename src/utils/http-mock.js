@@ -2,13 +2,13 @@ import axios from "axios"
 
 const http = (token) => {
   return token ? axios.create({
-    baseURL: "http://localhost:8000/api/v1/",
+    baseURL: "https://pure-hamlet-76363.herokuapp.com/",
     headers: {
       "Content-type": "application/json",
       "Authorization": "Token " + token,
     }
   }) : axios.create({
-    baseURL: "http://localhost:8000/api/v1/",
+    baseURL: "https://pure-hamlet-76363.herokuapp.com/",
     headers: {
       "Content-type": "application/json",
     }
